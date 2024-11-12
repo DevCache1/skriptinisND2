@@ -20,8 +20,10 @@ body {
     background-color: #444;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 320px; /* Adjust width to fit buttons */
+    max-width: 90vw; /* Responsive design for smaller screens */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevent content overflow */
 }
 
 h1 {
@@ -29,13 +31,38 @@ h1 {
     margin-bottom: 20px;
 }
 
-.control-section {
-    margin-bottom: 15px;
+/* Room Menu Styling */
+.room-menu {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 5px; /* Adds space between buttons */
 }
 
-.control-section h2 {
-    margin-bottom: 10px;
-    font-size: 16px;
+.room-button {
+    flex: 1 1 calc(50% - 10px); /* Each button takes 50% of the container width minus margin */
+    max-width: 130px; /* Maximum width of each button */
+    padding: 10px;
+    background-color: #555;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.room-button:hover {
+    background-color: #666;
+}
+
+.room-button.active {
+    background-color: #888;
+}
+
+/* Control Section Styling */
+.control-section {
+    margin-bottom: 15px;
 }
 
 input[type="range"] {
@@ -49,13 +76,6 @@ input[type="checkbox"] {
 
 .switch {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.dimmer {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }

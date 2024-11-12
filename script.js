@@ -1,28 +1,82 @@
-// Add basic interactivity
 const brightnessSlider = document.getElementById('brightness-slider');
 const brightnessLabel = document.querySelector('label[for="brightness-slider"]');
-const roomSelect = document.getElementById('room-select');
-const saveButton = document.getElementById('save-settings');
+const roomButtons = document.querySelectorAll('.room-button');
 const resetButton = document.getElementById('reset-settings');
+const resetAllButton = document.getElementById('reset-all-settings');
+const colorPicker = document.getElementById('color-picker');
+const lightSwitches = document.querySelectorAll('input[type="checkbox"]');
+
+let currentRoom = "Living Room";
+
+function saveSettings(room) {
+    const switchesState = Array.from(lightSwitches).map((switchElement) => switchElement.checked);
+
+    const settings = {
+        brightness: brightnessSlider.value,
+        color: colorPicker.value,
+        switches: switchesState,
+    };
+
+    localStorage.setItem(`settings-${room}`, JSON.stringify(settings));
+}
+
+function loadSettings(room) {
+    const settings = JSON.parse(localStorage.getItem(`settings-${room}`));
+
+    if (settings) {
+        brightnessSlider.value = settings.brightness || 50;
+        brightnessLabel.textContent = `${brightnessSlider.value}%`;
+        colorPicker.value = settings.color || "#ffffff";
+
+        lightSwitches.forEach((switchElement, index) => {
+            switchElement.checked = settings.switches[index] || false;
+        });
+    } else {
+        resetSettings();
+    }
+}
+
+function resetSettings() {
+    brightnessSlider.value = 50;
+    brightnessLabel.textContent = '50%';
+    colorPicker.value = "#ffffff";
+    lightSwitches.forEach((switchElement) => {
+        switchElement.checked = false;
+    });
+}
+
+function resetAllRoomSettings() {
+    const roomNames = ["Living Room", "Kitchen", "Bedroom", "Bathroom"];
+    roomNames.forEach(room => {
+        localStorage.removeItem(`settings-${room}`);
+    });
+    resetSettings()
+}
 
 brightnessSlider.addEventListener('input', () => {
     brightnessLabel.textContent = `${brightnessSlider.value}%`;
 });
 
-// Display a basic alert on save settings
-saveButton.addEventListener('click', () => {
-    alert(`Settings saved for ${roomSelect.value}!`);
+resetButton.addEventListener('click', () => {
+    resetSettings();
+    saveSettings(currentRoom);
 });
 
-// Reset all controls to default values
-resetButton.addEventListener('click', () => {
-    brightnessSlider.value = 50;
-    brightnessLabel.textContent = '50%';
-    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-        checkbox.checked = false;
+resetAllButton.addEventListener('click', resetAllRoomSettings);
+
+roomButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        saveSettings(currentRoom);
+
+        currentRoom = button.getAttribute('data-room');
+        roomButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        loadSettings(currentRoom);
     });
-    document.querySelectorAll('input[type="range"]').forEach((slider) => {
-        slider.value = 50;
-    });
-    alert('Settings have been reset.');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector(`[data-room="${currentRoom}"]`).classList.add('active');
+    loadSettings(currentRoom);
 });

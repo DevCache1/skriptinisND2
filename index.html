@@ -10,25 +10,19 @@
   <div class="control-panel">
     <h1>Home Lighting Control System</h1>
 
-    <!-- Room Selector -->
-    <div class="control-section">
-      <h2>Select Room</h2>
-      <select id="room-select">
-        <option>Living Room</option>
-        <option>Kitchen</option>
-        <option>Bedroom</option>
-        <option>Bathroom</option>
-      </select>
+    <div class="room-menu">
+      <button class="room-button" data-room="Living Room">Living Room</button>
+      <button class="room-button" data-room="Kitchen">Kitchen</button>
+      <button class="room-button" data-room="Bedroom">Bedroom</button>
+      <button class="room-button" data-room="Bathroom">Bathroom</button>
     </div>
 
-    <!-- Brightness Control (Slider) -->
     <div class="control-section">
       <h2>Brightness Control</h2>
       <input type="range" id="brightness-slider" min="0" max="100" value="50">
       <label for="brightness-slider">50%</label>
     </div>
 
-    <!-- Light Switches -->
     <div class="control-section">
       <h2>Light Switches</h2>
       <div class="switch">
@@ -45,33 +39,14 @@
       </div>
     </div>
 
-    <!-- Color Control (Dial) -->
     <div class="control-section">
       <h2>Color Control</h2>
       <input type="color" id="color-picker">
     </div>
 
-    <!-- Dimmers (Dials) -->
     <div class="control-section">
-      <h2>Dimmer Control</h2>
-      <div class="dimmer">
-        <label for="dimmer-kitchen">Kitchen</label>
-        <input type="range" id="dimmer-kitchen" min="0" max="100" value="30">
-      </div>
-      <div class="dimmer">
-        <label for="dimmer-living">Living Room</label>
-        <input type="range" id="dimmer-living" min="0" max="100" value="75">
-      </div>
-      <div class="dimmer">
-        <label for="dimmer-bedroom">Bedroom</label>
-        <input type="range" id="dimmer-bedroom" min="0" max="100" value="60">
-      </div>
-    </div>
-
-    <!-- Save & Reset Buttons -->
-    <div class="control-section">
-      <button id="save-settings">Save Settings</button>
-      <button id="reset-settings">Reset</button>
+      <button id="reset-settings">Reset Selected Room</button>
+      <button id="reset-all-settings">Reset All Rooms</button>
     </div>
   </div>
 
