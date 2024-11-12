@@ -1,0 +1,83 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Control Panel Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+}
+
+.control-panel {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.control-section {
+    margin-bottom: 15px;
+}
+
+.control-section h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 5px 0;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dimmer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #555;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+#color-picker {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}

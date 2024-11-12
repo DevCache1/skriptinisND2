@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Lighting Control System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="control-panel">
+    <h1>Home Lighting Control System</h1>
+
+    <!-- Room Selector -->
+    <div class="control-section">
+      <h2>Select Room</h2>
+      <select id="room-select">
+        <option>Living Room</option>
+        <option>Kitchen</option>
+        <option>Bedroom</option>
+        <option>Bathroom</option>
+      </select>
+    </div>
+
+    <!-- Brightness Control (Slider) -->
+    <div class="control-section">
+      <h2>Brightness Control</h2>
+      <input type="range" id="brightness-slider" min="0" max="100" value="50">
+      <label for="brightness-slider">50%</label>
+    </div>
+
+    <!-- Light Switches -->
+    <div class="control-section">
+      <h2>Light Switches</h2>
+      <div class="switch">
+        <input type="checkbox" id="main-light-switch">
+        <label for="main-light-switch">Main Light</label>
+      </div>
+      <div class="switch">
+        <input type="checkbox" id="accent-light-switch">
+        <label for="accent-light-switch">Accent Light</label>
+      </div>
+      <div class="switch">
+        <input type="checkbox" id="ceiling-light-switch">
+        <label for="ceiling-light-switch">Ceiling Light</label>
+      </div>
+    </div>
+
+    <!-- Color Control (Dial) -->
+    <div class="control-section">
+      <h2>Color Control</h2>
+      <input type="color" id="color-picker">
+    </div>
+
+    <!-- Dimmers (Dials) -->
+    <div class="control-section">
+      <h2>Dimmer Control</h2>
+      <div class="dimmer">
+        <label for="dimmer-kitchen">Kitchen</label>
+        <input type="range" id="dimmer-kitchen" min="0" max="100" value="30">
+      </div>
+      <div class="dimmer">
+        <label for="dimmer-living">Living Room</label>
+        <input type="range" id="dimmer-living" min="0" max="100" value="75">
+      </div>
+      <div class="dimmer">
+        <label for="dimmer-bedroom">Bedroom</label>
+        <input type="range" id="dimmer-bedroom" min="0" max="100" value="60">
+      </div>
+    </div>
+
+    <!-- Save & Reset Buttons -->
+    <div class="control-section">
+      <button id="save-settings">Save Settings</button>
+      <button id="reset-settings">Reset</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
