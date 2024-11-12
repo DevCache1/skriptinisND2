@@ -50,11 +50,12 @@ function resetAllRoomSettings() {
     roomNames.forEach(room => {
         localStorage.removeItem(`settings-${room}`);
     });
-    resetSettings()
+    resetSettings();
 }
 
 brightnessSlider.addEventListener('input', () => {
     brightnessLabel.textContent = `${brightnessSlider.value}%`;
+    saveSettings(currentRoom);
 });
 
 resetButton.addEventListener('click', () => {
@@ -71,9 +72,19 @@ roomButtons.forEach(button => {
         currentRoom = button.getAttribute('data-room');
         roomButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-        
+
         loadSettings(currentRoom);
     });
+});
+
+lightSwitches.forEach(switchElement => {
+    switchElement.addEventListener('change', () => {
+        saveSettings(currentRoom);
+    });
+});
+
+colorPicker.addEventListener('input', () => {
+    saveSettings(currentRoom);
 });
 
 document.addEventListener('DOMContentLoaded', () => {

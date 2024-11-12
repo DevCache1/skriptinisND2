@@ -1,4 +1,3 @@
-/* Reset Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* Control Panel Styling */
 body {
     display: flex;
     justify-content: center;
@@ -20,10 +18,10 @@ body {
     background-color: #444;
     padding: 20px;
     border-radius: 10px;
-    width: 320px; /* Adjust width to fit buttons */
-    max-width: 90vw; /* Responsive design for smaller screens */
+    width: 320px;
+    max-width: 90vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Prevent content overflow */
+    overflow: hidden;
 }
 
 h1 {
@@ -31,18 +29,17 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Room Menu Styling */
 .room-menu {
     display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 20px;
-    gap: 5px; /* Adds space between buttons */
+    gap: 5px;
 }
 
 .room-button {
-    flex: 1 1 calc(50% - 10px); /* Each button takes 50% of the container width minus margin */
-    max-width: 130px; /* Maximum width of each button */
+    flex: 1 1 calc(50% - 10px);
+    max-width: 130px;
     padding: 10px;
     background-color: #555;
     border: none;
@@ -60,7 +57,6 @@ h1 {
     background-color: #888;
 }
 
-/* Control Section Styling */
 .control-section {
     margin-bottom: 15px;
 }
